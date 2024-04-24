@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="auto_save.css">
+    <title>Auto Save</title>
+</head>
+
+<body>
+    <main>
+        <div class="box">
+            <form action="" class="img_box">
+                <h1>Auto Save Box</h1>
+                <textarea name="" id="message" cols="50" rows="14" onclick="change()" placeholder="Enter Message"></textarea>
+            </form>
+        </div>
+    </main>
+</body>
+
+<script>
+
+    // let save = document.getElementById('message');
+
+    // save.onclick(hello);
+
+
+    let obj = {};
+
+    let sve = document.getElementById('message');
+
+    function change() {
+        setInterval(() => {
+            let val = sve.value;
+            obj.value = val;
+            localStorage.setItem("obj", JSON.stringify(obj));
+            let num = JSON.parse(localStorage.getItem("obj"));
+            sve.value = num.value;
+        }, 100);
+    }
+    let num = JSON.parse(localStorage.getItem("obj"));
+    sve.value = num.value;
+
+
+
+</script>
+
+</html>
